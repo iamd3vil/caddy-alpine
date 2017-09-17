@@ -20,13 +20,16 @@ RUN cd $GOPATH/src/github.com/mholt/caddy/caddy && \
 
 FROM alpine:3.6
 
+# Add ca-certificates
+RUN apk --no-cache add ca-certificates
+
 # Copy caddy binary from alpine
 COPY --from=builder /usr/local/bin/caddy /usr/local/bin/
 
 # Copy default Caddyfile
 COPY Caddyfile /etc/Caddyfile
 
-VOLUME /root/.caddy/:/app
+VOLUME /root/.caddy/:/app/.caddy/
 
 EXPOSE 80 443 2015
 
