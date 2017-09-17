@@ -29,7 +29,9 @@ COPY --from=builder /usr/local/bin/caddy /usr/local/bin/
 # Copy default Caddyfile
 COPY Caddyfile /etc/Caddyfile
 
-VOLUME /root/.caddy/:/app/.caddy/
+VOLUME /root/.caddy/:/app
+
+ENV CADDYPATH=/app/
 
 EXPOSE 80 443 2015
 
