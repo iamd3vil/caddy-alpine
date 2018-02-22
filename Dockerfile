@@ -14,7 +14,7 @@ RUN go get -u github.com/iamd3vil/caddy && \
   go get -u github.com/caddyserver/builds
 
 # Build caddy
-RUN cd $GOPATH/src/github.com/mholt/caddy/caddy && \
+RUN cd $GOPATH/src/github.com/iamd3vil/caddy/caddy && \
   go run build.go -goos=linux -goarch=amd64 && \
   cp caddy /usr/local/bin/
 
