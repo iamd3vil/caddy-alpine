@@ -10,7 +10,7 @@ WORKDIR /app
 RUN apk update && apk add git
 
 # Fetch caddy and builds
-RUN go get -u github.com/mholt/caddy && \
+RUN go get -u github.com/iamd3vil/caddy && \
   go get -u github.com/caddyserver/builds
 
 # Build caddy
@@ -18,7 +18,7 @@ RUN cd $GOPATH/src/github.com/mholt/caddy/caddy && \
   go run build.go -goos=linux -goarch=amd64 && \
   cp caddy /usr/local/bin/
 
-FROM alpine:3.6
+FROM alpine:3.7
 
 # Add ca-certificates
 RUN apk --no-cache add ca-certificates
