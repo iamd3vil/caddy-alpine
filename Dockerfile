@@ -10,7 +10,8 @@ WORKDIR /app
 RUN apk update && apk add git
 
 # Fetch caddy and builds
-RUN go get -u github.com/iamd3vil/caddy && \
+RUN go get -u github.com/iamd3vil/caddy/... && \
+  go get -u github.com/nicolasazrak/caddy-cache/... && \
   go get -u github.com/caddyserver/builds
 
 # Build caddy
